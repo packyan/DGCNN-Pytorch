@@ -6,3 +6,4 @@
 *.points
 /.idea/
 *.params
+*.pyc
