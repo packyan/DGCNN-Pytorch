@@ -7,7 +7,8 @@ import random
 import os
 from torchvision import transforms
 from torch.utils.data.dataset import Dataset
-
+from utils import *
+from tqdm import tqdm
 '''
 Two ways to split dataset to train set and validation dataset
     input : 
@@ -151,6 +152,13 @@ class ReadDataFromFloder(Dataset):
         return len(self.data_path)
 
 
+def translate_pointcloud(pointcloud):
+    xyz1 = np.random.uniform(low=2. / 3., high=3. / 2., size=[3])
+    xyz2 = np.random.uniform(low=-0.2, high=0.2, size=[3])
+
+    translated_pointcloud = np.add(np.multiply(pointcloud.numpy(), xyz1), xyz2).astype('float32')
+    return torch.from_numpy(translated_pointcloud)
+
 class ModelNet40(Dataset):
     """Dataset wrapping data and target tensors.
 
@@ -163,10 +171,10 @@ class ModelNet40(Dataset):
         target_tensor (Tensor): contains sample targets (labels).
     """
 
-    def __init__(self, dataset_path):
-
+    def __init__(self, dataset_path, train = True):
+        self.train = train
         with h5py.File(dataset_path, 'r') as h5file:
-            data_tensor, target_tensor = h5file['points'][()], h5file['label'][()]
+            data_tensor, target_tensor = h5file['data'][()], h5file['label'][()]
 
             # print(data_tensor.shape, data_tensor.shape)
 
@@ -182,8 +190,10 @@ class ModelNet40(Dataset):
 
     def __getitem__(self, index):
         # print(index)
-        return self.data_tensor[index], self.target_tensor[index]
-
+        if self.train:
+            return translate_pointcloud(self.data_tensor[index]), self.target_tensor[index]
+        else:
+            return (self.data_tensor[index]), self.target_tensor[index]
     def __len__(self):
         return self.data_tensor.shape[0]
 
@@ -218,16 +228,17 @@ if __name__ == '__main__':
                                                           batch_size=1, shuffle=False)
 
     data_h5py, label_h5py = [], []
-    for data, label in train_point_data_loader:
-        data_h5py.append((torch.squeeze(data)).numpy())
+    for data, label in tqdm(train_point_data_loader, ascii=True):
+
+        data_h5py.append(normalize_point_cloud(torch.squeeze(data)).numpy())
         label_h5py.append(class_num_dict[label[0]])
 
     with h5py.File(train_point_h5_path, 'w') as f:
-        f.create_dataset('points', data=data_h5py)
+        f.create_dataset('data', data=data_h5py)
         f.create_dataset('label', data=label_h5py)
 
     with h5py.File(train_point_h5_path, 'r') as f:
-        x, y = f['points'][()], f['label'][()]
+        x, y = f['data'][()], f['label'][()]
         print(x.shape, y.shape)
 
     '''
@@ -239,14 +250,14 @@ if __name__ == '__main__':
     test_point_data_loader = torch.utils.data.DataLoader(test_point_data_set, \
                                                          batch_size=1, shuffle=False)
     data_h5py, label_h5py = [], []
-    for data, label in test_point_data_loader:
-        data_h5py.append((torch.squeeze(data)).numpy())
+    for data, label in tqdm(test_point_data_loader, ascii=True):
+        data_h5py.append(normalize_point_cloud(torch.squeeze(data)).numpy())
         label_h5py.append(class_num_dict[label[0]])
 
     with h5py.File(test_point_h5_path, 'w') as f:
-        f.create_dataset('points', data=data_h5py)
+        f.create_dataset('data', data=data_h5py)
         f.create_dataset('label', data=label_h5py)
 
     with h5py.File(test_point_h5_path, 'r') as f:
-        x, y = f['points'][()], f['label'][()]
+        x, y = f['data'][()], f['label'][()]
         print(x.shape, y.shape)

@@ -13,13 +13,26 @@ We propose a new neural network module dubbed EdgeConv suitable for CNN-based hi
 
 `DGCNN-Pytorch` is my personal re-implementation of Dynamic Graph CNN.
 ## Run
-### PointCloud Data Preparations
-There is two ways to convert ModelNet40 PLY or OFF file to PointCloud.
+### Point-Cloud Data Preparations
+There is two ways to convert ModelNet40 PLY or OFF file to Point-Cloud.
 1. Use `h5_dataloader.py` download and `load modelnet40_ply_hdf5_2048` files
+
 2. Custom down-sampling points from mesh. Download Modelnet40 off file, and unzip it in `Data/ModelNet40`
-Run Sampler with `test = 0` and `test = 1`, and pointcloud file will save in `ModelNet40_`
-Next  use `pointcloud_dataloader` to convert `*.points` to h5 file.
- 
+  Run `Sampler` with `test = 0` and `test = 1`, and sampled point-cloud file will save in `ModelNet40_`
+  Next  run `pointcloud_dataloader` to convert `*.points` to h5 file. `Data\ModelNet40_`  folder will create `ModelNet40_test.h5` and `ModelNet40_train.h5`
+
+  
+
+## Train
+
+Train model: Run `train` to train your model. Now is PointNet, next will update to pointnet and DGCNN.
+
+
+
+## To-Do
+
+Next few days, will upload DGCNN model.
+
 ## Citation
 
 Please cite this paper if you want to use it in your work,

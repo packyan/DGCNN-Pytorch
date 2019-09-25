@@ -7,3 +7,10 @@
 /.idea/
 *.params
 *.pyc
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+*.csv
+dist
+build
