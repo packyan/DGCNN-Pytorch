@@ -1,0 +1,187 @@
+Starting Eval...
+Starting Eval...
+Starting Eval...
+Starting Eval...
+Test :: test acc: nan, test avg acc: nan
+Starting Eval...
+Test :: test acc: nan, test avg acc: nan
+Total Accuracy: 0.897893
+Per Class Accuracy:
+0: 1.000000
+1: 0.880000
+2: 0.980000
+3: 0.600000
+4: 0.950000
+5: 0.950000
+6: 0.850000
+7: 0.980000
+8: 0.990000
+9: 0.950000
+10: 0.550000
+11: 0.700000
+12: 0.883721
+13: 0.900000
+14: 0.825581
+15: 0.350000
+16: 0.930000
+17: 0.990000
+18: 0.850000
+19: 0.850000
+20: 1.000000
+21: 0.970000
+22: 0.980000
+23: 0.709302
+24: 0.750000
+25: 0.900000
+26: 0.810000
+27: 0.800000
+28: 0.960000
+29: 0.850000
+30: 1.000000
+31: 0.900000
+32: 0.850000
+33: 0.840000
+34: 0.900000
+35: 0.990000
+36: 0.710000
+37: 0.850000
+38: 0.850000
+39: 0.800000
+Done!
+Starting Eval...
+Test :: test acc: nan, test avg acc: nan
+Total Accuracy: 0.897083
+Per Class Accuracy:
+airplane: 1.000000
+bathtub: 0.900000
+bed: 0.980000
+bench: 0.650000
+bookshelf: 0.950000
+bottle: 0.970000
+bowl: 0.850000
+car: 0.980000
+chair: 0.990000
+cone: 0.950000
+cup: 0.500000
+curtain: 0.850000
+desk: 0.895349
+door: 0.850000
+dresser: 0.802326
+flower_pot: 0.200000
+glass_box: 0.930000
+guitar: 1.000000
+keyboard: 0.900000
+lamp: 0.850000
+laptop: 1.000000
+mantel: 0.950000
+monitor: 0.980000
+night_stand: 0.709302
+person: 0.900000
+piano: 0.890000
+plant: 0.800000
+radio: 0.750000
+range_hood: 0.930000
+sink: 0.850000
+sofa: 1.000000
+stairs: 0.900000
+stool: 0.800000
+table: 0.810000
+tent: 0.950000
+test_files.csv: 1.000000
+toilet: 0.740000
+train_files.csv: 0.850000
+tv_stand: 0.800000
+vase: 0.800000
+Done!
+Starting Eval...
+Test :: test acc: 0.895462, test avg acc: 0.847587
+Total Accuracy: 0.895462
+Per Class Accuracy:
+airplane: 1.000000
+bathtub: 0.920000
+bed: 0.990000
+bench: 0.550000
+bookshelf: 0.950000
+bottle: 0.950000
+bowl: 0.800000
+car: 0.980000
+chair: 0.960000
+cone: 0.950000
+cup: 0.550000
+curtain: 0.900000
+desk: 0.872093
+door: 0.850000
+dresser: 0.848837
+flower_pot: 0.300000
+glass_box: 0.910000
+guitar: 1.000000
+keyboard: 0.900000
+lamp: 0.800000
+laptop: 1.000000
+mantel: 0.960000
+monitor: 0.980000
+night_stand: 0.732558
+person: 0.750000
+piano: 0.900000
+plant: 0.850000
+radio: 0.700000
+range_hood: 0.950000
+sink: 0.750000
+sofa: 1.000000
+stairs: 0.800000
+stool: 0.750000
+table: 0.800000
+tent: 0.900000
+toilet: 1.000000
+tv_stand: 0.750000
+vase: 0.850000
+wardrobe: 0.800000
+xbox: 0.700000
+Done!
+              precision    recall  f1-score   support
+
+    airplane       1.00      1.00      1.00       100
+     bathtub       1.00      0.92      0.96        50
+         bed       0.96      0.99      0.98       100
+       bench       0.69      0.55      0.61        20
+   bookshelf       0.86      0.95      0.90       100
+      bottle       0.98      0.95      0.96       100
+        bowl       0.84      0.80      0.82        20
+         car       1.00      0.98      0.99       100
+       chair       0.96      0.96      0.96       100
+        cone       1.00      0.95      0.97        20
+         cup       0.48      0.55      0.51        20
+     curtain       0.82      0.90      0.86        20
+        desk       0.81      0.87      0.84        86
+        door       0.89      0.85      0.87        20
+     dresser       0.74      0.85      0.79        86
+  flower_pot       0.19      0.30      0.23        20
+   glass_box       0.97      0.91      0.94       100
+      guitar       0.98      1.00      0.99       100
+    keyboard       1.00      0.90      0.95        20
+        lamp       0.94      0.80      0.86        20
+      laptop       0.87      1.00      0.93        20
+      mantel       0.95      0.96      0.96       100
+     monitor       0.98      0.98      0.98       100
+ night_stand       0.72      0.73      0.73        86
+      person       0.94      0.75      0.83        20
+       piano       1.00      0.90      0.95       100
+       plant       0.87      0.85      0.86       100
+       radio       0.67      0.70      0.68        20
+  range_hood       0.99      0.95      0.97       100
+        sink       0.88      0.75      0.81        20
+        sofa       0.96      1.00      0.98       100
+      stairs       0.94      0.80      0.86        20
+       stool       0.71      0.75      0.73        20
+       table       0.78      0.80      0.79       100
+        tent       0.95      0.90      0.92        20
+      toilet       0.98      1.00      0.99       100
+    tv_stand       0.91      0.75      0.82       100
+        vase       0.83      0.85      0.84       100
+    wardrobe       0.70      0.80      0.74        20
+        xbox       0.82      0.70      0.76        20
+
+   micro avg       0.90      0.90      0.90      2468
+   macro avg       0.86      0.85      0.85      2468
+weighted avg       0.90      0.90      0.90      2468
+

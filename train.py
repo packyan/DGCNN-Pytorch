@@ -12,6 +12,7 @@ from models.pointnet_classifier import PointNetClassifier
 import time
 from utils import *
 from models.DGCNN import PointNet
+from models.DGCNN import DGCNN
 import argparse
 import sklearn.metrics as metrics
 from tqdm import tqdm
@@ -61,7 +62,7 @@ if __name__ == '__main__':
 
     train_dataset = ModelNet40(Train_dataset_path)
     #train_dataset =ModelNet40h5(2000,'train')
-    train_dataloader = DataLoader(train_dataset, batch_size=24, shuffle=True)
+    train_dataloader = DataLoader(train_dataset, batch_size=16, shuffle=True)
     io = IOStream('checkpoints/' + '/train.log')
     # Parameters
     Epochs = 80
@@ -82,8 +83,8 @@ if __name__ == '__main__':
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     print('use %s' % device)
-    model = PointNet(args).to(device)
-
+    #model = PointNet(args).to(device)
+    model = DGCNN(args).to(device)
     # model = PointNetClassifier(num_points=2000, K=3, class_num=40).to(device).double()
     #model = torch.nn.DataParallel(model)
     # optim
